@@ -1,0 +1,208 @@
+.header {
+    box-shadow: 0px 4px 49px 0px rgba(0, 0, 0, 0.06);
+
+    &__logo {
+        width: clamp(4.375rem, calc(-4.301rem + 28.92vw), 11.063rem);
+    }
+
+    &__content {
+        padding: 15px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    &__left {
+        display: flex;
+        align-items: center;
+        gap: clamp(3.125rem, calc(-2.055rem + 9.75vw), 8rem);
+
+            @media (max-width: 850px) {
+               gap: clamp(0.625rem, -0.186rem + 2.7vw, 1.25rem);
+            }
+
+            @media (max-width: 480px) {
+                flex-direction: column;
+            }
+    }
+
+    &__form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        cursor: text;
+        min-width: clamp(28.125rem, calc(-6.938rem + 66vw), 61.125rem);
+        width: 100%;
+        
+        padding: 16px 20px;
+
+        border-radius: 10px;
+        border: 1px solid $lightGray;
+
+            input {
+                margin-right: 10px;
+                max-width: 100%;
+                width: 100%;
+                border: 0;
+                outline: none;
+
+                font-size: clamp(0.875rem, calc(0.477rem + 0.75vw), 1.25rem);
+                font-weight: 400;
+                line-height: normal;
+                color: $darkBlue;
+
+                    &::placeholder {
+                        color: $darkBlue;
+                    }
+            }
+
+
+            @media (max-width: 850px) {
+                min-width: clamp(12.5rem, calc(3.066rem + 47.17vw), 28.125rem);
+            }
+    }
+
+    &__search-ico {
+        background-image: url('../img/search.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 20px;
+        height: 20px;
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        @media (max-width: 850px) {
+            display: none;
+        }
+    }
+
+    &__button {
+        background: 0;
+        border: 0;
+    }
+
+}
+
+.menu {
+    padding: 14px 0;
+    border-top: 1px solid $lightBlue;
+
+        @media (max-width: 850px) {
+            display: none;
+        }
+
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    &__left {
+        display: flex;
+        align-items: center;
+        gap: clamp(0.938rem, calc(-2.051rem + 5.63vw), 3.75rem);
+    }
+
+    // catalog
+
+    &__catalog {
+        padding: clamp(0.75rem, calc(0.352rem + 0.75vw), 1.125rem) 
+                 clamp(0.625rem, calc(-0.438rem + 2vw), 1.625rem);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        font-size: 16px;
+        font-weight: 500;
+        line-height: normal;
+        text-transform: uppercase;
+        color: $blue;
+
+        border-radius: 10px;
+        background-color: $darkblueTwo;
+        border: 0;
+
+        transition: all .5s ease-in-out;
+
+        &:hover {
+            background-color: rgba(211, 236, 255, 0.7);
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            background-image: url('../img/catalog.svg');
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 14px;
+        }
+    }
+
+    // nav
+
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: clamp(0.625rem, calc(-2.695rem + 6.25vw), 3.75rem);
+
+            a {
+                font-size: clamp(0.625rem, calc(0.227rem + 0.75vw), 1rem);
+                font-weight: 400;
+                line-height: normal;
+                text-transform: uppercase;   
+                color: $black;
+                transition: all .5s ease-in-out;
+                
+                    &:hover {
+                        color: $blue;
+                    }
+            }
+    }
+
+    // contact
+
+    &__contact {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+            a {
+                display: block;
+                font-size: clamp(0.875rem, calc(0.609rem + 0.5vw), 1.125rem);
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                color: $black;
+                transition: all .5s ease-in-out;
+
+                    &:nth-child(2) {
+                        font-weight: 400;
+                        text-decoration: underline;
+                    }
+                    
+                    &:hover {
+                        color: $blue;
+                    }
+            }
+    }
+
+}
+
+.fixed {
+    @media (min-width: 850px) {
+        margin: 0;
+        position: fixed;
+        top: 0;
+        z-index: 6000;
+        width: 100%;
+        background: white;
+        box-shadow: 0px 6px 10px -8px #000000;
+    }
+}

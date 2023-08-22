@@ -1,0 +1,243 @@
+@mixin text {
+        font-family: 'Comfortaa';
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 147%;
+}
+
+.hits {
+    margin: 97px 0 clamp(3.125rem, calc(2.373rem + 3.76vw), 6.25rem);
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-bottom: 40px;
+    }
+
+    &__title {
+        color: $balackTwo;
+
+        font-family: 'Comfortaa';
+        font-size: clamp(0.938rem, calc(0.622rem + 1.58vw), 2.25rem);
+        font-weight: 500;
+        line-height: 147%;
+        text-transform: uppercase;
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+
+    &__prew, &__next {
+        overflow: hidden;
+        padding: 21px 25px;
+        border-radius: 100px;
+        background-color: $white;
+        box-shadow: 0px 0px 14px 0px rgba(49, 38, 25, 0.07);
+
+        border: 0;
+
+        &::after {
+            content: '';
+            display: block;
+            background: url('../img/arr.svg');
+            width: 11px;
+            height: 20px;
+        }
+
+        &.swiper-button-disabled {
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(233, 239, 243, .5);
+                z-index: 2;
+            }
+        }
+    }
+
+    &__prew {
+        &::after {
+           transform: rotate(180deg);
+        }
+    }
+
+
+    // slider
+
+    &__content {
+        overflow: hidden;
+    }
+
+    &__slider {
+        width: clamp(19.375rem, calc(18.172rem + 6.02vw), 24.375rem);
+    }
+
+
+    &__cart {
+        position: relative;
+
+        border-radius: 20px;
+        background: $lightBlue;
+
+            img {
+                vertical-align: top;
+                border-radius: 20px 20px 0 0;
+            }
+    }
+
+    &__bottom {
+        padding: 22px 20px 7px;
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    &__prices {
+        display: flex;
+        align-items: center; 
+        gap: 14px;
+    }
+
+    &__price, &__price-old {
+        color: $balackTwo;
+        font-family: 'Comfortaa';
+        @include text;
+    }
+
+    &__price-old {
+        color: $grayTwo;
+        font-weight: 300;
+        text-decoration: line-through;
+    }
+
+    &__discount {
+        color: $white;
+        @include text;
+
+        border-radius: 20px;
+        background: $green;
+        padding: 9px 17px;
+        width: fit-content;
+        line-height: 97%;
+        height: 33px;
+    }
+
+    &__name {
+        margin: 1px 0 13px;
+        color: $grayThree;
+
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 150%;
+    }
+
+    &__buy {
+        border-radius: 10px;
+        border: 1.5px solid $blue;
+
+        color: $blue;
+
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 147%; 
+
+        padding: 15px 0;
+        width: 100%;
+
+        background: 0;
+
+        transition: all .5s ease-in-out;
+
+            &:hover {
+                background-color: $blue;
+                color: $lightBlue;
+            }
+    }
+
+    // favorites 
+
+    &__favorites{
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 10px;
+
+        &:hover {
+            .hits__clue {
+                visibility: visible;
+                opacity: 1;
+                top: 44px;
+            }
+        }
+    }
+
+    &__heart {
+        background-color: $white;
+        box-shadow: 0px 3.5px 13px 0px rgba(158, 158, 158, 0.25);
+        padding: 11px;
+        border: 0;
+        border-radius: 100px;
+
+            &::after {
+                content: '';
+                display: block;
+                background: url('../img/favorit.svg') no-repeat;
+                width: 22px;
+                height: 20px;
+            }
+
+            
+    }
+
+    &__clue {
+        visibility: hidden;
+        opacity: 0;
+
+        position: absolute;
+        right: -103px;
+        top: 54px;
+
+        color: $grayThree;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 150%;
+
+        width: 191px;
+        height: 62px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+
+        transition: all .5s ease-in-out;
+
+            &::after {
+                content: '';
+                position: absolute;
+                background: url('../img/crue.svg') no-repeat;
+                width: 191px;
+                height: 62px;
+                z-index: -1;
+                filter: drop-shadow(0px 3.5px 13px rgba(158, 158, 158, 0.25));
+            }
+    }
+
+}
+
+.swiper-backface-hidden .swiper-slide {
+    transform: none !important;
+}

@@ -1,0 +1,111 @@
+@mixin textFooter {
+    color: $telFooter;
+    font-size: clamp(0.875rem, calc(-0.518rem + 1.71vw), 1.25rem);
+    font-weight: 400;
+}
+
+.footer {
+    padding: clamp(3.75rem, calc(3.013rem + 3.68vw), 6.813rem) 62px 118px 0;
+    background: $footer;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+
+        @media (max-width: 850px) {
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+    }
+
+    &__info {
+        display: block;
+    }
+
+    &__logo {
+        margin-bottom: 50px;
+    }
+
+    &__tel {
+        color: $telFooter;
+        font-size: clamp(0.875rem, calc(-0.518rem + 1.71vw), 1.25rem);
+        font-weight: 700;
+        line-height: 150%;
+    }
+
+    &__email, &__adres {
+        @include textFooter;
+    }
+
+    &__email {
+        margin: 37px 0 24px;
+        line-height: 150%
+    }
+
+    &__adres {
+        line-height: 136%;
+        max-width: clamp(16.375rem, calc(-7.071rem + 28.86vw), 22.688rem);
+    }
+
+    // menu 
+
+    &__menu {
+        display: flex;
+        gap: clamp(0.938rem, calc(-7.884rem + 10.86vw), 3.313rem);
+
+            @media (max-width: 1285px) {
+                flex-wrap: wrap;
+                gap: 50px;
+            }
+    }
+
+    &__name {
+        color: $black;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: normal;
+        text-transform: uppercase;
+
+        margin-bottom: 30px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        a {
+            max-width: 241px;
+            color: $menuFooter;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: normal;
+
+            transition: color .5s ease-in-out;
+
+                    &:hover {
+                        color: $green;
+                    }
+        }
+    }
+
+
+    &__list-b {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+        a {
+            color: $black;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: normal;
+            text-transform: uppercase;
+        }
+    }
+
+}
+
+#footer__active {
+    color: $blue;
+    font-weight: 700;
+}
